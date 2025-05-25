@@ -1,4 +1,11 @@
 from pydantic import BaseModel, Field
+from typing import Optional 
+
+class ClientRequest(BaseModel):
+    ProductName: Optional[str] = Field(None, example="Light Roast Sumatra")  # <-- optionnel maintenant
+    CustomerName: str = Field(..., example="Béatrice Ben Salah")
+    CategoryName: str = Field(..., example="Café en grains entiers")
+    FavoriteCategory: str = Field(..., example="Café moulu")
 
 class FullClientRequest(BaseModel):
     CustomerName: str = Field(..., example="Béatrice Ben Salah")
